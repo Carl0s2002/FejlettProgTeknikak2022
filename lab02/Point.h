@@ -5,7 +5,7 @@
 #ifndef MAIN_01_CPP_POINT_H
 #define MAIN_01_CPP_POINT_H
 #include <iostream>
-class Point{
+class Point : public std::error_code {
 private:
     int x, y;
 public:

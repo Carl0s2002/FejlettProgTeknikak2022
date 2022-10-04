@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.17)
 set(CMAKE_CXX_STANDARD 17)
 
-project(cpp-2022)
+project(FejlettProgTeknikak2022)
 
 add_subdirectory(lab01)
 add_subdirectory(lab02)
