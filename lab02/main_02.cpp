@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <cmath>
 #include "Point.h"
 #include "util.h"
 using namespace std;
@@ -21,9 +20,10 @@ int main(int argc, char** argv) {
         }
         case 6:{
             int x , y ;
-            ifstream fin("C:\\Users\\Admin\\Desktop\\Github\\FejlettProgTeknikak2022\\lab02\\Pontok.txt") ;
+            ifstream fin("Pontok.txt") ;
             if ( !fin ){
                 cout << "File open error!" ;
+                exit(1) ;
             }
             while( !fin.eof() ){
                 fin >> x >> y ;
