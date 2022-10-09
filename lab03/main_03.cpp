@@ -1,5 +1,6 @@
 #include <iostream>
 #include "List.h"
+#include "Stack.h"
 
 using namespace std;
 int main() {
@@ -29,8 +30,38 @@ int main() {
     cout << "Az elso elem amely ki lett torolve a(z)" << list1.removeFirst() << "-es/as ertek!" << endl << endl;
     cout<< "Valassz egy elemet:" ;
     cin >> d ;
-    int helper ;
     cout << " Milyen elemet toroljon ki?" << endl << "Kissebb(0)" << endl << "Egyenlo(1)" << endl << "Nagyobb(2)"  << endl ;
-    cin >> helper ;
+    int help ;
+    List::DeleteFlag helper ;
+    cin >> help;
+    switch (help) {
+        case 0 :{
+            helper = List::DeleteFlag::LESS ;
+            break;
+        }
+        case 1:{
+            helper = List::DeleteFlag::EQUAL ;
+            break;
+        }
+        case 2:{
+            helper = List::DeleteFlag::GREATER ;
+            break;
+        }
+    }
+    list1.remove(d , helper ) ;
+    list1.print();
+    help = list1.size() ;
+    Stack stack1(help) ;
+    cout << endl << "A verem ertekei a listabol:" << endl ;
+    for ( int i = 0 ; i < list1.size() ; ++i ) {
+        if ( i < list1.size() || i > -1 ){
+            help = list1.number(i);
+            stack1.push(help) ;
+        }
+    }
+    stack1.print();
+    cout << "A pop muvelet elvegzese utan:" << endl ;
+    stack1.pop() ;
+    stack1.print() ;
     return 0;
 }

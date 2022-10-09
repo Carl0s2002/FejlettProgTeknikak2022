@@ -43,6 +43,8 @@ to remove. The enum values are accessed with List::DeleteFlag::LESS,
 /* prints the contents of this list */
     void print() const;
 
+    int number( int );
+
 /* forbid copying of lists */
     List(const List &) = delete;
 

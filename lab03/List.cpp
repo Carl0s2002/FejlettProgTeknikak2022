@@ -5,7 +5,7 @@
 #include "List.h"
 
 List::List() {
-   // cout << "Konstruktor!" << endl ;
+    cout << "Konstruktor(lista)!" << endl ;
     this->first = nullptr ;
 }
 
@@ -25,7 +25,7 @@ void List::print() const {
 }
 
 List::~List() {
-   // cout << "Destruktor!" ;
+   cout << "Destruktor(lista)!" ;
 //    Node* act = this->first ;
 //    while ( act != nullptr ){
 //        Node * temp = act->next ;
@@ -79,14 +79,18 @@ void List::remove(int d, List::DeleteFlag df) {
             Node* temp = this->first ;
             Node* seged = this->first;
             if ( temp->value < d ){
+                cout << "A " << temp->value << "-es/as/os ertek ki lett torolve a listabol!" << endl;
                 removeFirst();
+                break;
             }
             temp = temp->next ;
             while( temp->next != nullptr ){
                 if ( temp->value < d ) {
+                    cout << "A " << temp->value << "-es/as/os ertek ki lett torolve a listabol!" << endl;
                     seged->next = temp->next ;
                     delete temp ;
                     nodeCounter-- ;
+                    break;
                 }
                 seged = seged->next ;
                 temp = temp->next ;
@@ -97,14 +101,18 @@ void List::remove(int d, List::DeleteFlag df) {
                     Node* temp = this->first ;
                     Node* seged = this->first;
                     if ( temp->value == d ){
+                        cout << "A " << temp->value << "-es/as/os ertek ki lett torolve a listabol!" << endl;
                         removeFirst();
+                        break;
                     }
                     temp = temp->next ;
                     while( temp->next != nullptr ){
                         if ( temp->value == d ) {
+                            cout << "A " << temp->value << "-es/as/os ertek ki lett torolve a listabol!" << endl;
                             seged->next = temp->next ;
                             delete temp ;
                             nodeCounter-- ;
+                            break;
                         }
                         seged = seged->next ;
                         temp = temp->next ;
@@ -115,14 +123,18 @@ void List::remove(int d, List::DeleteFlag df) {
             Node* temp = this->first ;
             Node* seged = this->first;
             if ( temp->value > d ){
+                cout << "A " << temp->value << "-es/as/os ertek ki lett torolve a listabol!" << endl;
                 removeFirst();
+                break;
             }
             temp = temp->next ;
             while( temp->next != nullptr ){
                 if ( temp->value > d ) {
+                    cout << "A " << temp->value << "-es/as/os ertek ki lett torolve a listabol!" << endl;
                     seged->next = temp->next ;
                     delete temp ;
                     nodeCounter-- ;
+                    break;
                 }
                 seged = seged->next ;
                 temp = temp->next ;
@@ -132,3 +144,13 @@ void List::remove(int d, List::DeleteFlag df) {
     }
 
 }
+
+int List::number( int i ) {
+    Node *temp = this->first ;
+    while ( i != 0 ) {
+        temp = temp->next ;
+        i-- ;
+    }
+    return temp->value ;
+}
+
