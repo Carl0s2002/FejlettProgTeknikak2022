@@ -67,7 +67,9 @@ void PointSet::printPoints() const {
 }
 
 void PointSet::printDistances() const {
-
+        for ( int i = 0 ; i < this->distances.size() ; ++i ){
+            cout << i << "st/nd/rd/th distance:" <<  this->distances[i] << endl ;
+        }
 }
 
 int PointSet::numDistinctDistances() {
@@ -87,4 +89,20 @@ int PointSet::numDistinctDistances() {
 //    }
 //    return distinctDistance.size() ;
     return unique(this->distances.begin() ,this->distances.end()) - this->distances.begin() ;
+}
+bool sortingX( Point p1  , Point p2 ) {
+    return ( p1.getX() < p2.getX() ) ;
+}
+void PointSet::sortPointsX() {
+    sort( this->points.begin() , this->points.end() , sortingX ) ;
+}
+bool sortingY( Point p1 , Point p2 ) {
+    return ( p1.getY() < p2.getY() ) ;
+}
+void PointSet::sortPointsY() {
+    sort( this->points.begin() , this->points.end() , sortingY) ;
+}
+
+void PointSet::sortDistances() {
+    sort( this->distances.begin() , this->distances.end() );
 }

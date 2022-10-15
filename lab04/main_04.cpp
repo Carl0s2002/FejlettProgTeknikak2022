@@ -32,5 +32,17 @@ int main() {
         cout << endl;
         n = n << 1;
     }
+
+    cout << endl ;
+    PointSet pointSet( 10 ) ;
+    cout << "Pontok rendezese Y koordinatak szerint:" << endl ;
+    pointSet.sortPointsY() ;
+    pointSet.printPoints() ;
+    cout << endl << "Pontok rendezese X koordinatak szerint:" << endl ;
+    pointSet.sortPointsX() ;
+    pointSet.printPoints() ;
+    cout << endl << "Tavolsagok elrendezve:" << endl ;
+    pointSet.sortDistances() ;
+    pointSet.printDistances() ;
     return 0;
 }

@@ -36,11 +36,11 @@ public:
 //a tavolsagok tároló kiíratása
     void printDistances() const;
 //növekvő sorrendbe rendezi a pontokat x koordináta szerint
-//    void sortPointsX();
+    void sortPointsX();
 //u. a. y koordináta szerint
-//    void sortPointsY();
+    void sortPointsY();
 //a tavolsagok tároló rendezése
-//    void sortDistances();
+    void sortDistances();
 //hány darab különböző távolságot tartalmaz a tavolsagok tömb
     int numDistinctDistances();
 };
