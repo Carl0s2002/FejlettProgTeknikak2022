@@ -1,6 +1,10 @@
 #include <iostream>
+#include "Matrix.h"
 
 int main() {
-    std::cout << "Hello, Lab_05" << std::endl;
+    Matrix m1(2,3) ;
+    //m1.fillMatrix(10) ;
+    m1.randomMatrix(0 , 50 ) ;
+    m1.printMatrix() ;
     return 0;
 }
