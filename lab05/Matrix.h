@@ -9,6 +9,11 @@
 using namespace std;
 
 class Matrix {
+private:
+//Data
+    double ** mElements;
+    int mRows; //number of rows
+    int mCols; //number of columns
 public:
 //Methods
 // Default constructor
@@ -35,23 +40,22 @@ public:
 // operation is permitted on matrices having proper dimensions
 // otherwise throws an out_of_range exception!!
     friend Matrix operator*(const Matrix& x, const Matrix& y);
-private:
-//Data
-    double ** mElements;
-    int mRows; //number of rows
-    int mCols; //number of columns
+    // extractor operator
+    friend istream & operator>>(istream& is, Matrix& mat);
+// inserter operator
+    friend ostream & operator<<(ostream& os, const Matrix& mat);
+    // index operator
+    double* operator[] (int index);
+// index operator that works on constant matrices!
+    double* operator[] (int index) const;
+    // Copy assignment
+// operation is permitted between matrices having the same dimensions
+// otherwise throws an exception (out_of_range)
+    Matrix & operator=(const Matrix& mat);
+// Move assignment
+    Matrix & operator=(Matrix&& mat);
+
 };
-Matrix operator+(const Matrix &x, const Matrix &y) {
-    if ( x.mRows == y.mCols && y.mRows == y.mCols ) {
-        Matrix temp( x.mRows , x.mCols ) ;
-        for (int i = 0; i < x.mRows; ++i) {
-            for (int j = 0; j < x.mCols; ++j) {
-                temp.mElements[i][j] = x.mElements[i][j] + y.mElements[i][j];
-            }
-        }
-        return temp ;
-    }
-        throw out_of_range("Out of range!") ;
-}
+
 
 #endif //MAIN_05_CPP_MATRIX_H
