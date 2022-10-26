@@ -3,6 +3,7 @@
 #include <algorithm>
 #include "PointSet.h"
 #include <iomanip>
+#include "Point.h"
 using namespace std;
 int main() {
 //    vector<int> v1 ;
@@ -19,30 +20,46 @@ int main() {
 //    cout << *min_element( x1  , x1 + 7 ) << endl ;
 //    cout << *min_element(x2.begin() , x2.end()) << endl ;
 
-    int n = 2;
-    cout<<"Pontok\tMinTav\t MaxTav\t #tavolsagok\t#kulonbozotavolsagok"<<endl;
-    cout<< fixed;
-    for( int i= 0; i<12; ++i ){
-        PointSet pSet( n );
-        cout<<setw(6)<<n<<" ";
-        cout<<setw(8)<<setprecision(2)<<pSet.minDistance()<<" ";
-        cout<<setw(8)<<setprecision(2)<<pSet.maxDistance()<<" ";
-        cout<<setw(10) << pSet.numDistances()<<" ";
-        cout<<setw(16) << pSet.numDistinctDistances()<<endl;
-        cout << endl;
-        n = n << 1;
-    }
+//    int n = 2;
+//    cout<<"Pontok\tMinTav\t MaxTav\t #tavolsagok\t#kulonbozotavolsagok"<<endl;
+//    cout<< fixed;
+//    for( int i= 0; i<12; ++i ){
+//        PointSet pSet( n );
+//        cout<<setw(6)<<n<<" ";
+//        cout<<setw(8)<<setprecision(2)<<pSet.minDistance()<<" ";
+//        cout<<setw(8)<<setprecision(2)<<pSet.maxDistance()<<" ";
+//        cout<<setw(10) << pSet.numDistances()<<" ";
+//        cout<<setw(16) << pSet.numDistinctDistances()<<endl;
+//        cout << endl;
+//        n = n << 1;
+//    }
+//
+//    cout << endl ;
+//    PointSet pointSet( 10 ) ;
+//    cout << "Pontok rendezese Y koordinatak szerint:" << endl ;
+//    pointSet.sortPointsY() ;
+//    pointSet.printPoints() ;
+//    cout << endl << "Pontok rendezese X koordinatak szerint:" << endl ;
+//    pointSet.sortPointsX() ;
+//    pointSet.printPoints() ;
+//    cout << endl << "Tavolsagok elrendezve:" << endl ;
+//    pointSet.sortDistances() ;
+//    pointSet.printDistances() ;
 
-    cout << endl ;
-    PointSet pointSet( 10 ) ;
-    cout << "Pontok rendezese Y koordinatak szerint:" << endl ;
-    pointSet.sortPointsY() ;
-    pointSet.printPoints() ;
-    cout << endl << "Pontok rendezese X koordinatak szerint:" << endl ;
-    pointSet.sortPointsX() ;
-    pointSet.printPoints() ;
-    cout << endl << "Tavolsagok elrendezve:" << endl ;
-    pointSet.sortDistances() ;
-    pointSet.printDistances() ;
+
+//    PointSet pset1(10);
+//    cout<<"#points: " <<Point::getCounter()<<endl;
+//    PointSet pset2(20);
+//    cout<<"#points: " <<Point::getCounter()<<endl;
+
+    Point p1( 1 , 2 ) , p2 ;
+    cout << Point::getCounter() << endl;
+    Point p3 = p1 ;
+    Point p4(p2) ;
+    cout << Point::getCounter() << endl;
+    Point *p5 = new Point(3,3) ;
+    cout << Point::getCounter() << endl;
+    delete p5  ;
+    cout << Point::getCounter() << endl;
     return 0;
 }

@@ -3,6 +3,7 @@
 //
 
 #include "Point.h"
+int Point::counter{0};
 Point::Point(int x, int y) {
     if (x >= 0 && x <= 2000 && y >= 0 && y <= 2000){
         this->x = x;
@@ -12,7 +13,19 @@ Point::Point(int x, int y) {
         this->x = 0;
         this->y = 0;
     }
+    this->counter++ ;
 }
+Point::Point(const Point &point) {
+    this->x = point.getX() ;
+    this->y = point.getY() ;
+    counter++ ;
+}
+//Point::Point(Point &&point) {
+//    this->x = point.getX() ;
+//    this->y = point.getY() ;
+//    point.x = 0 ;
+//    point.y = 0 ;
+//}
 int Point::getX() const {
     return x;
 }
