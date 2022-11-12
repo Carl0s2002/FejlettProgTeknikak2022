@@ -100,6 +100,34 @@ int main() {
     cout << endl << endl ;
     ///9.
     cout << "9. feladat:" << endl << endl ;
-    map<char , int> abc[26] ;
+    vector<pair<char , int>> abc( 26 , make_pair( 'a' , 0 )) ;
+    abc.reserve(26) ;
+    string abcde = "abcdefghijklmnopqrstuvwxyz" ;
+    random_shuffle( abcde.begin() , abcde.end() ) ;
+    for_each( abc.begin() , abc.end() , [abcde]( pair<char , int> & map1){
+        static int i = 0 ;
+        map1.first = abcde[i] ;
+        map1.second = ++i ;
+    });
+    for_each( abc.begin() , abc.end() , []( pair<char , int> & map1){
+        cout << map1.first << " " << map1.second << endl ;
+    });
+    sort( months.begin() , months.end() , [abc]( const string& e1 , const string& e2 ) {
+        int i1 = 0 , i2 = 0  ;
+        for (int i = 0; i < abc.size(); ++i) {
+            if ( e1[0] == abc[i].first) {
+                i1 = abc[i].second ;
+                break;
+            }
+            if ( e2[0] == abc[i].first){
+                i2 = abc[i].second ;
+                break;
+            }
+        }
+        return i1 > i2 ;
+    });
+    for_each( months.begin() , months.end() , []( const string& e) {
+        cout << e << endl;
+    });
     return 0;
 }
