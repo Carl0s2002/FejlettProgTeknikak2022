@@ -10,10 +10,17 @@ using namespace std ;
 
 class Alkalmazott: public Szemely{
 protected:
-    static int id ;
+    static int counter ;
+    int id ;
     string munkakor ;
 public:
     Alkalmazott(const string &vezeteknev, const string &keresztnev, int szuletesiEv, const string &munkakor);
+    int getId() {
+        return id ;
+    }
+
+    const string &getMunkakor() const;
+
     virtual void print(ostream& os) const;
 };
 

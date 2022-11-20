@@ -15,12 +15,14 @@ class Manager: public Alkalmazott{
     vector<Alkalmazott*> beosztottak ;
 public:
     const static string MANAGER_MUNKAKOR ;
-    static int id ;
+    int id ;
     Manager(const string &vezeteknev, const string &keresztnev, int szuletesiEv, const string &munkakor);
     void addAlkalmazott( Alkalmazott* alkalmazott );
     void deleteAlkalmazott( Alkalmazott* alkalmazott );
     int beosztottakSzama() ;
     virtual void print( ostream& os) const ;
+
+    //static const string &getManagerMunkakor();
 };
 
 

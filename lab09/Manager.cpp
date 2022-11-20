@@ -3,12 +3,16 @@
 //
 
 #include "Manager.h"
-const string Manager::MANAGER_MUNKAKOR="Manager" ;
+
+const string Manager::MANAGER_MUNKAKOR="Manager";
+
 Manager::Manager(const string &vezeteknev, const string &keresztnev, int szuletesiEv, const string &munkakor)
-        : Alkalmazott(vezeteknev, keresztnev, szuletesiEv, MANAGER_MUNKAKOR) {}
+        : Alkalmazott(vezeteknev, keresztnev, szuletesiEv, MANAGER_MUNKAKOR) {
+    this->id = this->counter ;
+}
 
 void Manager::addAlkalmazott(Alkalmazott *alkalmazott) {
-    beosztottak.emplace_back(alkalmazott) ;
+    this->beosztottak.emplace_back(alkalmazott) ;
 }
 
 void Manager::deleteAlkalmazott(Alkalmazott* alkalmazott) {
@@ -28,12 +32,12 @@ int Manager::beosztottakSzama() {
 
 void Manager::print(ostream &os) const {
     os << "Manager:" << endl;
+    os << "Id: "  << this->id << endl ;
     os << "Vezeteknev es Keresztnev: " << this->vezeteknev << " " << this->keresztnev << endl ;
     os << "Szuletesi ev: " << this->szuletesiEv << endl ;
     os << "Munkakor: " << this->munkakor << endl ;
     os << "Beosztottak:" << endl ;
-    for ( Alkalmazott *a: beosztottak ){
-        cout << *a ;
+    for ( Alkalmazott *a: this->beosztottak ){
+        os << *a ;
     }
 }
-

@@ -3,10 +3,10 @@
 //
 
 #include "Alkalmazott.h"
-int Alkalmazott::id{0} ;
+int Alkalmazott::counter{0} ;
 Alkalmazott::Alkalmazott(const string &vezeteknev, const string &keresztnev, int szuletesiEv, const string &munkakor)
         : Szemely(vezeteknev, keresztnev, szuletesiEv), munkakor(munkakor) {
-        this->id++ ;
+        this->id = this->counter++ ;
 }
 
 void Alkalmazott::print(ostream &os)const {
@@ -16,4 +16,8 @@ void Alkalmazott::print(ostream &os)const {
     os << endl << "Szuletesi ev: " << this->szuletesiEv << endl ;
     os << "Munkakor:" << this->munkakor ;
     os << endl ;
+}
+
+const string &Alkalmazott::getMunkakor() const {
+    return munkakor;
 }
