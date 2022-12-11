@@ -5,10 +5,11 @@
 #ifndef MAIN_12_CPP_SETTLEMENTSTATISICS_H
 #define MAIN_12_CPP_SETTLEMENTSTATISICS_H
 
+#include <iostream>
+#include "Settlement.h"
 
 class SettlementStatisics {
 public:
-    struct SettlementStatistics {
         virtual int numSettlements() const = 0;
         virtual int numCounties() const = 0;
         virtual int numSettlementsByCounty(const string& county) const = 0;
@@ -20,8 +21,6 @@ public:
         virtual Settlement minPopulationDensity() const = 0;
         virtual vector<Settlement> findSettlementsByName(
                 const string& name) = 0;
-    };
-
 };
 
 

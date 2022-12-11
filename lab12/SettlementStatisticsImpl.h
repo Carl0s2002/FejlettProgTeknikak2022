@@ -5,9 +5,17 @@
 #ifndef MAIN_12_CPP_SETTLEMENTSTATISTICSIMPL_H
 #define MAIN_12_CPP_SETTLEMENTSTATISTICSIMPL_H
 
-#include "Settlement.h"
+#include "SettlementStatisics.h"
 #include <vector>
-class SettlementStatisticsImpl {
+#include <map>
+#include <fstream>
+#include <sstream>
+
+class SettlementStatisticsImpl: public SettlementStatisics {
+    multimap<string , Settlement> settlements ;
+public:
+    SettlementStatisticsImpl(const string& fileName );
+
     int numSettlements() const override ;
     int numCounties() const override;
     int numSettlementsByCounty(const string& county) const override;
